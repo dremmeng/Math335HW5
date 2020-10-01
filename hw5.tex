@@ -1,0 +1,154 @@
+% LaTeX Article Template - customizing page format
+%
+% LaTeX document uses 10-point fonts by default.  To use
+% 11-point or 12-point fonts, use \documentclass[11pt]{article}
+% or \documentclass[12pt]{article}.
+\documentclass{article}
+
+% Set left margin - The default is 1 inch, so the following 
+% command sets a 1.25-inch left margin.
+\setlength{\oddsidemargin}{0.25in}
+
+% Set width of the text - What is left will be the right margin.
+% In this case, right margin is 8.5in - 1.25in - 6in = 1.25in.
+\setlength{\textwidth}{6in}
+
+% Set top margin - The default is 1 inch, so the following 
+% command sets a 0.75-inch top margin.
+\setlength{\topmargin}{-0.25in}
+
+% Set height of the text - What is left will be the bottom margin.
+% In this case, bottom margin is 11in - 0.75in - 9.5in = 0.75in
+\setlength{\textheight}{8in}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\graphicspath{ {./} }
+
+\setlength{\parskip}{5pt} 
+\pagestyle{fancyplain}
+% Set the beginning of a LaTeX document
+\begin{document}
+
+\lhead{Drew Remmenga MATH 335}
+\rhead{HW \#5}
+%\lhead{Independent Study}
+%\rhead{R Lab}
+
+\begin{enumerate}
+\item
+	\begin{enumerate}
+	\item
+		\begin{equation*}
+		\begin{split}
+		f(\sigma;X) & = \frac{1}{\sigma^{2} \sqrt{2 \pi}} e^{-\frac{1}{2}(\frac{X_{i}-\mu}{\sigma})^{2}} \\
+		l(\sigma;X) & = -\frac{1}{2} log{(\sigma^{2})} - \frac{1}{2} log(2 \pi) - \frac{1}{2}(\frac{X_{i}-\mu}{\sigma})^{2} \\
+		l'(\sigma;X) &  =  -\frac{1}{\sigma} - \frac{-2}{2}\frac{(X_{i}-\mu)^{2}}{\sigma^{3}} \\
+		l''(\sigma;X) & = \frac{1}{(\sigma)^{2}} - 3\frac{(X_{i}-\mu)^{2}}{\sigma^{4}} \\
+		-E[l''(\sigma;X)] & = \frac{2}{\sigma^{2}} \\
+		\end{split}
+		\end{equation*}
+	\item
+		\begin{equation*}
+		\begin{split}
+		L(\sigma;X) & = \prod_{i=1}^{N} \frac{1}{\sigma^{2} \sqrt{2 \pi}} e^{-\frac{1}{2}(\frac{X_{i}-\mu}{\sigma})^{2}} \\
+		l(\sigma;X) & = -\frac{N}{2} log{(\sigma^{2})} - \frac{N}{2} log(2 \pi) - \sum_{i=1}^{N}  \frac{1}{2}(\frac{X_{i}-\mu}{\sigma})^{2} \\
+		l'(\sigma;X) &  =  \frac{-N}{\sigma}+ \sum_{i=1}^{N}  \frac{(X_{i}-\mu)^{2}}{\sigma^{3}} \\
+		l'(\sigma;X) &  = 0 \\
+		0 & = \frac{-N}{\sigma}+ \sum_{i=1}^{N}  \frac{(X_{i}-\mu)^{2}}{\sigma^{3}} \\
+		\sigma^{2} & = \sum_{i=1}^{N}  \frac{(X_{i}-\mu)^{2}}{N} \\
+		\hat{\sigma} & = \sum_{i=1}^{N}  \frac{(X_{i}-\mu)}{\sqrt{N}} \\
+		\end{split}
+		\end{equation*}
+	\item
+		\begin{equation*}
+		\begin{split}
+		\sqrt {n} (\hat{\sigma} - \sigma) \rightarrow N(0, \frac{\sigma^{2}}{2}) 
+		\end{split}
+		\end{equation*}
+	\end{enumerate}
+\item
+	\begin{enumerate}
+	\item
+		\begin{equation*}
+		\begin{split}
+		\sqrt {n} (\hat{\lambda} - \lambda) \rightarrow N(0, \lambda^{2}) 
+		\end{split}
+		\end{equation*}
+	\item
+.9992687
+	\end{enumerate}
+\item
+	\begin{enumerate}
+	\item
+		\begin{equation*}
+		\begin{split}
+		\sqrt {n} (\bar{Y} - \mu) \rightarrow N(0, \sigma^{2})
+		\end{split}
+		\end{equation*}
+	\item
+		\begin{equation*}
+		\begin{split}
+		(\bar{Y} - \mu) \rightarrow N(0, \frac{\sigma^{2}}{n})
+		\end{split}
+		\end{equation*}
+Therefore it is asymptotically efficient.
+	\item
+		\begin{equation*}
+		\begin{split}
+		\sqrt {n} (\bar{Y} - \lambda) \rightarrow N(0, \lambda)
+		\end{split}
+		\end{equation*}
+	\item
+		\begin{equation*}
+		\begin{split}
+		(\bar{Y} - \lambda) \rightarrow N(0, \frac{\lambda}{n})
+		\end{split}
+		\end{equation*}
+Therefore it is asymptotically efficient.
+	\end{enumerate}
+\item
+	\begin{enumerate}
+	\item
+		\begin{equation*}
+		\begin{split}
+		L(\theta;X) & = \prod_{i=1}^{N} \frac{1}{2} \theta^{3} x^{2} e^{-\theta x} \\
+		l(\theta;X) & =\sum_{i=1}^{N}  log(\frac{1}{2}) + 3 log(\theta) + 2 log(x_{i}) -\theta x_{i} \\
+		l'(\theta;X) &  = 0 \\
+		0 & = 3 N \frac{1}{\theta} - \sum_{i=1}^{N} x_{i} \\
+		\hat{\theta} & = \frac{3}{\bar{X}}
+		\end{split}
+		\end{equation*}
+	\item
+		\begin{equation*}
+		\begin{split}
+		L(\theta;X) & =  \frac{1}{2} \theta^{3} x^{2} e^{-\theta x} \\
+		l(\theta;X) & =  log(\frac{1}{2}) + 3 log(\theta) + 2 log(x_{i}) -\theta x_{i} \\
+		l''(\theta;X) &  = -3 \frac{1}{\theta^{2}} \\
+		-E(l''(\theta;X) & = 3 \frac{1}{\theta^{2}} \\
+		\sqrt {n} (\hat{\theta} - \frac{3}{\theta}) &\rightarrow N(0, \frac{\theta^{2}}{3})
+		\end{split}
+		\end{equation*}
+	\item
+		\begin{equation*}
+		\begin{split}
+		E[X] & = \frac{3}{\theta} \\
+		V[X] & = \frac{3}{\theta^{2}} \\	
+		g(\mu) & = \frac{3}{\mu} \\
+		g'(\mu) & = \frac{3}{\mu^{2}} \\
+		g'(\frac{3}{\theta}) & = \frac{\theta^{2}}{3} \\
+		\sqrt {n} (\hat{\theta} - \frac{3}{\theta}) &\rightarrow N(0, \frac{3}{\theta^{2}} \frac{\theta^{4}}{9}) \\
+		\sqrt {n} (\hat{\theta} - \frac{3}{\theta}) &\rightarrow N(0, \frac{\theta^{2}}{3})
+		\end{split}
+		\end{equation*}
+	\item
+Yes.
+	\item
+When finding the standard deviation is hard and involves a lot of calculus.
+	\end{enumerate}
+\end{enumerate}
+
+\end{document}
